@@ -1,12 +1,19 @@
 <script>
+import { isAbsolute } from 'path';
+
     export default { 
         data() {
             return {
                 // Add code here
+                id: "demo1",
+                isRed: false
             }
         },
         methods: { 
    			// Add code here
+            changeColor(){
+                this.isRed = !this.isRed;
+            }
 		}
     }
 </script>
@@ -15,11 +22,11 @@
     
     <!-- Modify code here -->
     <div class="container">
-        <div v-bind:id="id" class="m-2">
+        <div v-bind:id="id" class="m-2" :class="isRed ? 'redBox' : 'blueBox'">
             div ID : {{id}} 
         </div>
         
-        <button type="button">Change Color</button>
+        <button type="button" v-on:click="changeColor":class="isRed ? 'btn btn-danger' : 'btn btn-secondary'">Change Color</button>
     </div>
 
 </template>

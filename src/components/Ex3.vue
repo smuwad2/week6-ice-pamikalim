@@ -29,5 +29,16 @@
         <input v-if="logintype === 'username'" :placeholder="user_des">
         <input v-else :placeholder="email_des">
     </div>
+
+
+    <!-- suggested answer: -->
+    <!-- <div v-if="logintype==='username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </div>
+    <div v-else="logintype==='email'">
+        <label>Email</label>
+        <input placeholder="Enter your email">
+    </div> -->
 </template>
 
