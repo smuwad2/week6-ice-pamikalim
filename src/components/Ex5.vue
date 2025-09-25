@@ -18,7 +18,6 @@ export default {
     },
     methods: {
         cycleTheme() {
-            // Move to the next theme
             this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
             const theme = this.themes[this.currentThemeIndex];
             this.bgColor = theme.bg;
@@ -26,7 +25,6 @@ export default {
         }
     },
     mounted() {
-        // Set the initial theme on load
         const theme = this.themes[this.currentThemeIndex];
         this.bgColor = theme.bg;
         this.textColor = theme.text;
@@ -41,20 +39,20 @@ export default {
              :style="{ backgroundColor: bgColor, color: textColor }">
             <h2>Customize Profile</h2>
 
-            <label>Name:</label><br>
-            <input v-model="name" placeholder="Your Name"
+            <label for="name">Name:</label><br>
+            <input id="name" v-model="name" placeholder="Your Name"
                    :style="{ backgroundColor: bgColor, color: textColor, borderColor: textColor }"><br><br>
 
-            <label>Job Title:</label><br>
-            <input v-model="job" placeholder="Web Developer"
+            <label for="job">Job Title:</label><br>
+            <input id="job" v-model="job" placeholder="Web Developer"
                    :style="{ backgroundColor: bgColor, color: textColor, borderColor: textColor }"><br><br>
 
-            <label>Bio:</label><br>
-            <textarea v-model="bio" rows="3" placeholder="A short bio..."
+            <label for="bio">Bio:</label><br>
+            <textarea id="bio" v-model="bio" rows="3" placeholder="A short bio..."
                       :style="{ backgroundColor: bgColor, color: textColor, borderColor: textColor }"></textarea><br><br>
 
-            <label>Profile Image URL:</label><br>
-            <input v-model="imageUrl" placeholder="https://example.com/me.jpg"
+            <label for="imageUrl">Profile Image URL:</label><br>
+            <input id="imageUrl" v-model="imageUrl" placeholder="https://example.com/me.jpg"
                    :style="{ backgroundColor: bgColor, color: textColor, borderColor: textColor }"><br><br>
 
             <label>Theme Presets:</label><br>
@@ -68,7 +66,7 @@ export default {
             <h2>Live Preview</h2>
             <div class="preview-card"
                  :style="{ backgroundColor: bgColor, color: textColor }">
-                <img :src="imageUrl" class="preview-img">
+                <img :src="imageUrl" class="preview-img" alt="Profile Image">
                 <h3>{{ name || 'Your Name' }}</h3>
                 <h4>{{ job || 'Job Title' }}</h4>
                 <p>{{ bio || 'Write something about yourself...' }}</p>
